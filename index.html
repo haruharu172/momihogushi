@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>もみほぐし ぴーす｜西船橋駅徒歩1分の隠れ家リラクゼーションサロン</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #f9fbf9;
+      --bg-surface: #ffffff;
+      --bg-mint: #eef3ef;
+      --ink-main: #2e3833;
+      --ink-muted: #65736b;
+      --accent-sage: #4d6b5d;
+      --accent-soft: #7b998a;
+      --border: rgba(46, 56, 51, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      background-color: var(--bg-base);
+      color: var(--ink-main);
+      line-height: 1.85;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .en {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: 0.16em;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* Demo Banner */
+    .demo-banner {
+      background: #e3ece6;
+      color: #3d5247;
+      font-size: 11.5px;
+      text-align: center;
+      padding: 7px 14px;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(249, 251, 249, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--ink-main);
+      line-height: 1.15;
+    }
+
+    .brand-main {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent-sage);
+    }
+
+    .brand-sub {
+      font-size: 9.5px;
+      letter-spacing: 0.16em;
+      color: var(--ink-muted);
+      margin-top: 2px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--ink-muted);
+      font-size: 12.5px;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent-sage);
+    }
+
+    .nav-cta {
+      background: var(--accent-sage);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 9px 16px;
+      border-radius: 6px;
+      letter-spacing: 0.06em;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.88;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 46px 0 78px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--accent-soft);
+      letter-spacing: 0.18em;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4.3vw, 39px);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.05em;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-sage);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(77, 107, 93, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #3d574b;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(77, 107, 93, 0.35);
+      color: var(--ink-main);
+      background: #ffffff;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-sage);
+      background: var(--bg-mint);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 12px;
+      filter: brightness(1.04);
+      box-shadow: 0 18px 40px rgba(77, 107, 93, 0.12);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: -16px;
+      left: 20px;
+      right: 20px;
+      max-width: 350px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(77, 107, 93, 0.08);
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    .hero-badge strong {
+      display: block;
+      color: var(--ink-main);
+      font-size: 13.5px;
+    }
+
+    /* Section common */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .section-head .en {
+      display: block;
+      font-size: 14px;
+      color: var(--accent-soft);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(22px, 3.5vw, 28px);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    /* Concept */
+    .concept-band {
+      background: var(--bg-mint);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 16px rgba(77, 107, 93, 0.04);
+    }
+
+    .card-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      color: var(--accent-soft);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .card p {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+    }
+
+    /* Menu */
+    .menu-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 34px 32px;
+      box-shadow: 0 4px 20px rgba(77, 107, 93, 0.04);
+    }
+
+    .menu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .menu-title {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .menu-sub {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin-top: 3px;
+    }
+
+    .menu-price {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      color: var(--accent-sage);
+    }
+
+    .menu-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .menu-note {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    /* Info & Access */
+    .access-section {
+      background: var(--bg-mint);
+      border-top: 1px solid var(--border);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(77, 107, 93, 0.04);
+    }
+
+    .info-card h3 {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.06em;
+    }
+
+    dl {
+      font-size: 13.5px;
+    }
+
+    dt {
+      font-weight: 500;
+      color: var(--accent-sage);
+      margin-top: 12px;
+      font-size: 12.5px;
+    }
+
+    dt:first-child {
+      margin-top: 0;
+    }
+
+    dd {
+      color: var(--ink-main);
+    }
+
+    dd a {
+      color: var(--ink-main);
+      text-decoration: underline;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 250px;
+      border: 0;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .map-btns {
+      display: flex;
+    }
+
+    .btn-sm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      font-size: 13px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background: #35473e;
+      color: rgba(255, 255, 255, 0.85);
+      padding: 40px 0;
+      font-size: 12.5px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #fff;
+    }
+
+    footer a {
+      color: #c8ded2;
+      text-decoration: none;
+    }
+
+    @media (max-width: 780px) {
+      .hero-grid,
+      .access-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-img {
+        height: 310px;
+      }
+      nav {
+        display: none;
+      }
+      .menu-wrap {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    ※Webサイト制作のご提案用に作成したサンプルページです（写真・メニュー価格は仮サンプルです）。
+  </div>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand">
+        <span class="brand-main">もみほぐし ぴーす</span>
+        <span class="brand-sub">NISHI-FUNABASHI RELAXATION SALON</span>
+      </a>
+      <div class="nav-right">
+        <nav>
+          <a href="#concept">特徴</a>
+          <a href="#menu">料金目安</a>
+          <a href="#access">アクセス</a>
+        </nav>
+        <a href="https://www.instagram.com/peacemomihogushi/" target="_blank" rel="noopener noreferrer" class="nav-cta">ご予約・詳細</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-label en">NISHI-FUNABASHI PRIVATE RELAXATION</span>
+        <h1>駅徒歩1分の個室空間で、<br>心と身体をふっと軽く。</h1>
+        <p>
+          西船橋駅南口からすぐの落ち着いた隠れ家サロン。首・肩のこりや日々の疲れに寄り添う丁寧なもみほぐしで、心まで安らぐひとときをお届けします。
+        </p>
+        <div class="hero-actions">
+          <a href="https://www.instagram.com/peacemomihogushi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">空き状況・WEB予約案内</a>
+          <a href="tel:0474011627" class="btn btn-outline">TEL 047-401-1627</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          class="hero-img"
+          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=80"
+          alt="もみほぐし ぴーす サロンイメージ"
+        />
+        <div class="hero-badge">
+          <strong>西船橋駅南口 徒歩1分・個室ありの安らぎ空間</strong>
+          <span>全身もみほぐし・ヘッドスパ・足つぼケア対応</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="concept" class="concept-band">
+    <div class="container">
+      <div class="section-head">
+        <span class="en">FEATURE</span>
+        <h2>もみほぐし ぴーす が選ばれる理由</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-num">01 / PRIVATE ROOM</div>
+          <h3>周りを気にせず寛げる個室空間</h3>
+          <p>
+            西船橋駅から徒歩1分の好アクセスながら、穏やかで落ち着いた店内。人目を気にせずリラックスしてお過ごしいただけます。
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-num">02 / TAILORED CARE</div>
+          <h3>お疲れの箇所に寄り添う丁寧な施術</h3>
+          <p>
+            デスクワークによる首・肩・腰の張りや全身のだるさなど、お一人おひとりの体調や力加減のご希望に合わせて丁寧にほぐします。
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-num">03 / EASY ACCESS</div>
+          <h3>お仕事帰りやお買い物ついでにも</h3>
+          <p>
+            駅からすぐの通いやすい立地なので、お仕事の合間や一日の終わりのリフレッシュにも気軽にご利用いただけます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <div class="section-head">
+        <span class="en">MENU &amp; PRICE</span>
+        <h2>コース・料金目安（サンプル）</h2>
+      </div>
+      <div class="menu-wrap">
+        <div class="menu-row">
+          <div>
+            <div class="menu-title">全身もみほぐし 60分コース</div>
+            <div class="menu-sub">首・肩・背中・腰・足まで全身の疲れをバランスよくケアする定番コース</div>
+          </div>
+          <div class="menu-price">¥4,500〜（仮）</div>
+        </div>
+        <div class="menu-row">
+          <div>
+            <div class="menu-title">全身もみほぐし 90分コース</div>
+            <div class="menu-sub">特にお疲れが溜まっている箇所をじっくり重点的にほぐす満足コース</div>
+          </div>
+          <div class="menu-price">¥6,600〜（仮）</div>
+        </div>
+        <div class="menu-row">
+          <div>
+            <div class="menu-title">もみほぐし ＋ ドライヘッドスパ</div>
+            <div class="menu-sub">眼精疲労や頭重感が気になる方におすすめの組み合わせメニュー</div>
+          </div>
+          <div class="menu-price">¥5,500〜（仮）</div>
+        </div>
+        <div class="menu-row">
+          <div>
+            <div class="menu-title">足つぼリフレクソロジー（オプション）</div>
+            <div class="menu-sub">立ち仕事や歩き疲れによる足のむくみ・冷えをすっきりケア</div>
+          </div>
+          <div class="menu-price">¥2,200〜（仮）</div>
+        </div>
+
+        <div class="menu-footer">
+          <span class="menu-note">※正式なコース時間・料金・クーポンは実際のメニューに合わせて差し替え可能です。</span>
+          <a href="https://www.instagram.com/peacemomihogushi/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">公式Instagramで最新情報を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="access" class="access-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="en">SALON INFO &amp; ACCESS</span>
+        <h2>店舗情報・アクセス</h2>
+      </div>
+      <div class="access-grid">
+        <div class="info-card">
+          <h3>サロン概要</h3>
+          <dl>
+            <dt>サロン名</dt>
+            <dd>もみほぐし ぴーす</dd>
+            <dt>所在地</dt>
+            <dd>〒273-0032 千葉県船橋市印内町599-3 サンライズビル 302</dd>
+            <dt>アクセス</dt>
+            <dd>JR西船橋駅 南口より徒歩1分</dd>
+            <dt>お電話</dt>
+            <dd><a href="tel:0474011627">047-401-1627</a></dd>
+            <dt>公式Instagram</dt>
+            <dd><a href="https://www.instagram.com/peacemomihogushi/" target="_blank" rel="noopener noreferrer">@peacemomihogushi</a></dd>
+          </dl>
+        </div>
+
+        <div class="info-card">
+          <h3>アクセスマップ</h3>
+          <iframe
+            class="map-frame"
+            src="https://maps.google.com/maps?q=千葉県船橋市印内町599-3+サンライズビル+もみほぐし+ぴーす&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="もみほぐし ぴーす アクセスマップ">
+          </iframe>
+          <div class="map-btns">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=千葉県船橋市印内町599-3+サンライズビル+もみほぐし+ぴーす"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary btn-sm"
+            >Googleマップで経路を見る</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">もみほぐし ぴーす</div>
+        <div>〒273-0032 千葉県船橋市印内町599-3 サンライズビル 302</div>
+      </div>
+      <div><a href="#">PAGE TOP ↑</a></div>
+    </div>
+  </footer>
+</body>
+</html>
